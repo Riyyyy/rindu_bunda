@@ -57,6 +57,21 @@ class TransaksiResource extends Resource
                                         'selesai' => 'Selesai',
                                     ])
                                     ->required(),
+
+                                Forms\Components\FileUpload::make('foto_ktp')
+                                    ->label('Foto E-KTP')
+                                    ->image()
+                                    ->directory('foto-ktp')
+                                    ->acceptedFileTypes(['image/jpeg', 'image/png'])
+                                    ->helperText('Format harus JPG atau PNG')
+                                    ->required()
+                                    ->validationMessages(['required' => 'data wajib diisi']),
+
+                                Forms\Components\DatePicker::make('tanggal_lahir')
+                                    ->label('Tanggal Lahir')
+                                    ->required()
+                                    ->placeholder('Pilih tanggal lahir')
+                                    ->validationMessages(['required' => 'data wajib diisi']),
                             ]),
                     ]),
             ]);
